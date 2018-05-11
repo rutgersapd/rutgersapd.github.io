@@ -52,7 +52,7 @@
 
 .title > .frat
 {
-  position: absolute;
+  position: relative;
   top: 120px;
   font-size:200%;
   width: 100%;
