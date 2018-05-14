@@ -427,7 +427,7 @@ Max width of 1150px
 *
 */
 
-@media (max-width: 1150px) 
+@media screen and (max-width: 1150px) 
 {
   .title > .apd
   {
@@ -797,7 +797,7 @@ Max width of 900px
 *
 */
 
-@media (max-width: 900px) 
+@media screen and (max-width: 900px) 
 {
   .title > .apd
   {
@@ -1133,7 +1133,7 @@ Max width of 700px
 *
 */
 
-@media (max-width: 500px) 
+@media screen and (max-width: 500px) 
 {
     .header > #nav + label + .main-menu
   {
