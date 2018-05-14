@@ -892,7 +892,7 @@ Max width of 700px
 *
 */
 
-@media (max-width: 500px) 
+@media (max-width: 550px) 
 {
     .header > #nav + label + .main-menu
   {
@@ -940,25 +940,32 @@ Max width of 700px
 
     color: rgba(0,0,0,);
   }
+  .title
+  {
+    width: 100%;
+    display: block;
+  }
   .title > .apd
   {
-    font-size: 230%;
+    font-size: 190%;
   }
   .title > img
   {
-    width:45px;
-    top: 10px;
+    width:35px;
+    top: 9px;
     left: 3%;
   }
   .title > .frat
   {
-    font-size: 90%;
-    top: 40px;
+    position: absolute;
+    font-size: 77%;
+    top: 35px;
+    left: -10px;
   }
   .horizontal-line
   {
-    font-size: 65%;
-    top: 50px;
+    font-size: 60%;
+    top: 45px;
   }
   .header > .main-menu > li:hover
   {
