@@ -1181,6 +1181,10 @@ Max width of 700px
 
     color: rgba(0,0,0,);
   }
+  .tittle
+  {
+    width:100%;
+  }
   .title > .apd
   {
     font-size: 190%;
