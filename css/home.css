@@ -1196,6 +1196,7 @@ Max width of 700px
     position: absolute;
     font-size: 77%;
     top: 34px;
+    text-align:center;
   }
   .horizontal-line
   {
