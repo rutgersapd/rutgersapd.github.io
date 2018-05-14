@@ -1083,22 +1083,24 @@ Max width of 700px
   }
   .title > .apd
   {
-    font-size: 230%;
+    font-size: 190%;
   }
   .title > img
   {
-    width:45px;
-    top: 10px;
+    width:35px;
+    top: 9px;
     left: 3%;
   }
   .title > .frat
   {
-    font-size: 90%;
-    top: 40px;
+    position: absolute;
+    font-size: 77%;
+    top: 35px;
+    left: -1px;
   }
   .horizontal-line
   {
-    font-size: 65%;
+    font-size: 60%;
     top: 50px;
   }
   .header > .main-menu > li:hover
@@ -1220,7 +1222,7 @@ Max width of 700px
     position: relative;
     color: rgb(121,0,201);
     width: 100%;
-    font-size: 70%;
+    font-size: 60%;
     top:830px;
     z-index:-11;
     padding: 0 0 10px 0;
