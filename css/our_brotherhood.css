@@ -1015,7 +1015,7 @@ Max width of 900px
 **
 **
 *
-Max width of 700px
+Max width of 500px
 *
 *
 *
@@ -1212,7 +1212,7 @@ Max width of 700px
   {
     position: absolute;
     width: 70%;
-    top: 170%;
+    top: 150%;
     left: 15%;
     overflow: hidden;
   }
@@ -1274,14 +1274,14 @@ Max width of 700px
     font-family: sans-serif;
     right: 8%;
     list-style-type: none;
-    top: 25em;
+    top: 470px;
     font-size: 100%;
   }
   .philanthropy > #phil
   {
     position: absolute;
     width: 70%;
-    top: 450px;
+    top: 550px;
     left: 15%;
     overflow: hidden;
   }
@@ -1289,7 +1289,7 @@ Max width of 700px
   {
     display: block;
     position: relative;
-    top: 1860px;
+    top: 1700px;
     width: 100%;
     padding: 35px 15px 122px 0px;
     background: rgba(97,92,83,0.8);
