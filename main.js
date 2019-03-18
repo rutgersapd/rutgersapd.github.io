@@ -344,6 +344,7 @@ var HomeComponent = /** @class */ (function () {
         //   twttr.widgets.load();
         //   window.instgrm.Embeds.process()
         // });
+        // location.reload();
         $("#slideshow > div:gt(0)").hide();
         setInterval(function () {
             $('#slideshow > div:first')
