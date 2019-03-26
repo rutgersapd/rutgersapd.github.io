@@ -67250,6 +67250,238 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Version"]('7.2.7')
 
 /***/ }),
 
+/***/ "./node_modules/ngx-twitter-timeline/fesm5/ngx-twitter-timeline.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/ngx-twitter-timeline/fesm5/ngx-twitter-timeline.js ***!
+  \*************************************************************************/
+/*! exports provided: NgxTwitterTimelineService, NgxTwitterTimelineComponent, NgxTwitterTimelineModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxTwitterTimelineService", function() { return NgxTwitterTimelineService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxTwitterTimelineComponent", function() { return NgxTwitterTimelineComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxTwitterTimelineModule", function() { return NgxTwitterTimelineModule; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxTwitterTimelineService = /** @class */ (function () {
+    function NgxTwitterTimelineService() {
+        this.TWITTER_SCRIPT_ID = 'twitter-wjs';
+        this.TWITTER_WIDGET_URL = 'https://platform.twitter.com/widgets.js';
+    }
+    /**
+     * @return {?}
+     */
+    NgxTwitterTimelineService.prototype.loadScript = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        return rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].create((/**
+         * @param {?} observer
+         * @return {?}
+         */
+        function (observer) {
+            _this.startScriptLoad();
+            window['twttr'].ready((/**
+             * @param {?} twttr
+             * @return {?}
+             */
+            function (twttr) {
+                observer.next(twttr);
+                observer.complete();
+            }));
+        }));
+    };
+    /**
+     * @private
+     * @return {?}
+     */
+    NgxTwitterTimelineService.prototype.startScriptLoad = /**
+     * @private
+     * @return {?}
+     */
+    function () {
+        window['twttr'] = ((/**
+         * @param {?} d
+         * @param {?} s
+         * @param {?} id
+         * @param {?} url
+         * @return {?}
+         */
+        function (d, s, id, url) {
+            /** @type {?} */
+            var script;
+            /** @type {?} */
+            var firstScriptEl = d.getElementsByTagName(s)[0];
+            /** @type {?} */
+            var twitterScript = window['twttr'] || {};
+            if (d.getElementById(id)) {
+                return twitterScript;
+            }
+            script = d.createElement(s);
+            script.id = id;
+            script.src = url;
+            firstScriptEl.parentNode.insertBefore(script, firstScriptEl);
+            twitterScript._e = [];
+            twitterScript.ready = (/**
+             * @param {?} f
+             * @return {?}
+             */
+            function (f) {
+                twitterScript._e.push(f);
+            });
+            return twitterScript;
+        })(document, 'script', this.TWITTER_SCRIPT_ID, this.TWITTER_WIDGET_URL));
+    };
+    NgxTwitterTimelineService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] }
+    ];
+    /** @nocollapse */
+    NgxTwitterTimelineService.ctorParameters = function () { return []; };
+    /** @nocollapse */ NgxTwitterTimelineService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["defineInjectable"])({ factory: function NgxTwitterTimelineService_Factory() { return new NgxTwitterTimelineService(); }, token: NgxTwitterTimelineService, providedIn: "root" });
+    return NgxTwitterTimelineService;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxTwitterTimelineComponent = /** @class */ (function () {
+    function NgxTwitterTimelineComponent(element, twitterTimelineService) {
+        this.element = element;
+        this.twitterTimelineService = twitterTimelineService;
+        this.defaultOpts = {
+            tweetLimit: 5
+        };
+        this.defaultData = {
+            sourceType: 'url',
+            url: 'https://twitter.com/twitterdev',
+            screenName: 'twitterdev'
+        };
+    }
+    /**
+     * @return {?}
+     */
+    NgxTwitterTimelineComponent.prototype.ngOnChanges = /**
+     * @return {?}
+     */
+    function () {
+        if (this.data && this.data.sourceType) {
+            switch (this.data.sourceType) {
+                case 'url':
+                    delete this.defaultData.screenName;
+                    break;
+                case 'profile':
+                    delete this.defaultData.url;
+                    break;
+                default:
+                    break;
+            }
+            this.loadTwitterWidget();
+        }
+    };
+    /**
+     * @return {?}
+     */
+    NgxTwitterTimelineComponent.prototype.loadTwitterWidget = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.twitterTimelineService
+            .loadScript()
+            .subscribe((/**
+         * @param {?} twttr
+         * @return {?}
+         */
+        function (twttr) {
+            /** @type {?} */
+            var nativeElement = _this.element.nativeElement;
+            nativeElement.innerHTML = "";
+            window['twttr']
+                .widgets
+                .createTimeline(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, _this.defaultData, _this.data), nativeElement, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, _this.defaultOpts, _this.opts))
+                .then((/**
+             * @param {?} embed
+             * @return {?}
+             */
+            function (embed) {
+                // console.log(embed);
+            }))
+                .catch((/**
+             * @param {?} error
+             * @return {?}
+             */
+            function (error) { return console.error(error); }));
+        }), (/**
+         * @param {?} err
+         * @return {?}
+         */
+        function (err) { return console.error(err); }));
+    };
+    NgxTwitterTimelineComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"], args: [{
+                    selector: 'ngx-twitter-timeline',
+                    template: ""
+                }] }
+    ];
+    /** @nocollapse */
+    NgxTwitterTimelineComponent.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["ElementRef"] },
+        { type: NgxTwitterTimelineService }
+    ]; };
+    NgxTwitterTimelineComponent.propDecorators = {
+        data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }],
+        opts: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Input"] }]
+    };
+    return NgxTwitterTimelineComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var NgxTwitterTimelineModule = /** @class */ (function () {
+    function NgxTwitterTimelineModule() {
+    }
+    NgxTwitterTimelineModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"], args: [{
+                    declarations: [NgxTwitterTimelineComponent],
+                    imports: [],
+                    exports: [NgxTwitterTimelineComponent]
+                },] }
+    ];
+    return NgxTwitterTimelineModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+
+//# sourceMappingURL=ngx-twitter-timeline.js.map
+
+/***/ }),
+
 /***/ "./node_modules/rxjs/_esm5/index.js":
 /*!******************************************!*\
   !*** ./node_modules/rxjs/_esm5/index.js ***!
